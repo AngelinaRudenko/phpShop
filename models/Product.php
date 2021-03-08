@@ -1,0 +1,70 @@
+<?php
+
+
+class Product
+{
+    const show_by_default = 10;
+
+    public static function getLatestProducts($count = self::show_by_default)
+    {
+        $count = intval($count);
+
+        $db = DB::createConnection();
+
+        $productsList = array();
+        $result = $db->query('select id,name,price,image,is_new from product where status="1" order by id desc limit ' . $count);
+
+        $i = 0;
+        while ($row = $result->fetch()) {
+            $productsList[$i]['id'] = $row['id'];
+            $productsList[$i]['name'] = $row['name'];
+            $productsList[$i]['image'] = $row['image'];
+            $productsList[$i]['price'] = $row['price'];
+            $productsList[$i]['is_new'] = $row['is_new'];
+            $i++;
+        }
+
+        return $productsList;
+    }
+
+    public static function getProductsListByCategory($categoryId = false)
+    {
+        if ($categoryId) {
+            $db = DB::createConnection();
+
+            $productsList = array();
+            $result = $db->query('select id,name,price,image,is_new from product where status="1" and category_id = '
+                . $categoryId . ' order by id desc limit ' . self::show_by_default);
+
+            $i = 0;
+            while ($row = $result->fetch()) {
+                $productsList[$i]['id'] = $row['id'];
+                $productsList[$i]['name'] = $row['name'];
+                $productsList[$i]['image'] = $row['image'];
+                $productsList[$i]['price'] = $row['price'];
+                $productsList[$i]['is_new'] = $row['is_new'];
+                $i++;
+            }
+
+            return $productsList;
+        }
+    }
+
+    public static function getProductById($id)
+    {
+        $id = intval($id);
+
+        if ($id) {
+            $db = DB::createConnection();
+
+            $result = $db->query("select * from product where id = $id");
+
+            //$result->setFetchMode(PDO::FETCH_NUM);//индексы в виде номеров
+            $result->setFetchMode(PDO::FETCH_ASSOC);//индексы в виде названий
+
+            $product = $result->fetch();
+
+            return $product;
+        }
+    }
+}
