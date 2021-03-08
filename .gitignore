@@ -2,7 +2,15 @@
 components/Db.php
 
 #vs code
-.vs
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
 
 # Created by .ignore support plugin (hsz.mobi)
 ### Example user template template

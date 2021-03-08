@@ -1,6 +1,4 @@
 <?php
-include_once ROOT . "/models/Category.php";
-include_once ROOT . "/models/Product.php";
 
 class CatalogController
 {
@@ -16,13 +14,16 @@ class CatalogController
         return true;
     }
 
-    public function actionCategory($categoryId)
+    public function actionCategory($categoryId, $page = 1)
     {
         $categories = array();
         $categories = Category::getCategoriesList();
 
         $products = array();
-        $products = Product::getProductsListByCategory($categoryId);
+        $products = Product::getProductsListByCategory($categoryId, $page);
+
+        $total = Product::getTotalProductsInCategory($categoryId);
+        $pagination = new Pagination($total, $page, Product::show_by_default, 'page-');
 
         require_once(ROOT . '/views/catalog/category.php');
         return true;
