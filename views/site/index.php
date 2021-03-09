@@ -23,7 +23,10 @@
                                             <?php echo $productItem['name'];?>
                                         </a>
                                     </p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
+                                    <!--href="/cart/add/<?php echo $productItem['id'];?>" синхронный-->
+                                    <a href="/cart/addAjax/<?php echo $productItem['id'];?>"
+                                       data-id="<?php echo $productItem['id']; ?>"
+                                       class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
                                 </div>
                                 <?php if ($productItem['is_new']):?>
                                     <img src="/template/images/home/new.png" class="new">

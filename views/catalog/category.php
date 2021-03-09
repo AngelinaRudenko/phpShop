@@ -1,10 +1,10 @@
-<?php include ROOT.'/views/layouts/header.php';?>
+<?php include ROOT . '/views/layouts/header.php'; ?>
 
     <section>
         <div class="container">
             <div class="row">
 
-                <?php include ROOT.'/views/layouts/categoriesListSelected.php';?>
+                <?php include ROOT . '/views/layouts/categoriesListSelected.php'; ?>
 
                 <div class="col-sm-9 padding-right">
                     <div class="features_items"><!--features_items-->
@@ -15,31 +15,34 @@
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="/template/images/home/product1.jpg" alt="" />
+                                            <img src="/template/images/home/product1.jpg" alt=""/>
                                             <h2>
-                                                <?php echo $productItem['price'];?>
+                                                <?php echo $productItem['price']; ?>
                                             </h2>
                                             <p>
-                                                <a href="/product/<?php echo $productItem['id'];?>">
-                                                    <?php echo $productItem['name'];?>
+                                                <a href="/product/<?php echo $productItem['id']; ?>">
+                                                    <?php echo $productItem['name']; ?>
                                                 </a>
                                             </p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
+                                            <!--href="/cart/add/<?php echo $productItem['id']; ?>" синхронный-->
+                                            <a href="/cart/addAjax/<?php echo $productItem['id']; ?>"
+                                               data-id="<?php echo $productItem['id']; ?>"
+                                               class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
                                         </div>
-                                        <?php if ($productItem['is_new']):?>
+                                        <?php if ($productItem['is_new']): ?>
                                             <img src="/template/images/home/new.png" class="new">
-                                        <?php endif;?>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
                         <?php endforeach; ?>
                     </div>
 
-                    <?php echo $pagination->get();?>
+                    <?php echo $pagination->get(); ?>
                 </div><!--features_items-->
             </div>
         </div>
         </div>
     </section>
 
-<?php include ROOT.'/views/layouts/footer.php';?>
+<?php include ROOT . '/views/layouts/footer.php'; ?>

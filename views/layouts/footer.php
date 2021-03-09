@@ -15,5 +15,19 @@
 <script src="/template/js/price-range.js"></script>
 <script src="/template/js/jquery.prettyPhoto.js"></script>
 <script src="/template/js/main.js"></script>
+<!--асинхронное добавление в корзину-->
+<script>
+    //код должен быть выполнен только после загрузки док-та
+    $(document).ready(function () {
+        //нажатие на кнопку "добавить к корзину"
+        $(".add-to-cart").click(function () {
+            var id = $(this).attr("data-id");
+            $.post("/cart/addAjax/" + id, {}, function (data) {
+                $("#cart-count").html(" (" + data + ")");
+            });
+            return false;
+        });
+    });
+</script>
 </body>
 </html>
