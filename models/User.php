@@ -55,4 +55,74 @@ class User
         }
         return false;
     }
+
+    public static function checkUserData($email, $password)
+    {
+        $db = DB::createConnection();
+        $sql = 'select * from user where email = :email and password = :password';
+
+        $result = $db->prepare($sql);
+        $result->bindParam(':email', $email, PDO::PARAM_STR);
+        $result->bindParam(':password', $password, PDO::PARAM_STR);
+        $result->execute();
+
+        $user = $result->fetch();
+        if ($user) {
+            return $user['id'];
+        }
+        return false;
+    }
+
+    public static function auth($userId)
+    {
+        //session_start();
+        $_SESSION['user'] = $userId;
+    }
+
+    public static function checkLogged()
+    {
+        //session_start();
+        //если сессия есть,вернем id
+        if (isset($_SESSION['user'])) {
+            return $_SESSION['user'];
+        }
+        //переадресация, если не авторизован
+        header("Location: /user/login");
+    }
+
+    public static function isGuest()
+    {
+        //session_start();
+        if (isset($_SESSION['user'])) {
+            return false;
+        }
+        return true;
+    }
+
+    public static function getUserById($id)
+    {
+        if ($id) {
+            $db = DB::createConnection();
+            $sql = 'select * from user where id = :id';
+
+            $result = $db->prepare($sql);
+            $result->bindParam(':id', $id, PDO::PARAM_STR);
+            $result->setFetchMode(PDO::FETCH_ASSOC);
+            $result->execute();
+
+            return $result->fetch();
+        }
+    }
+
+    public static function edit($id, $name, $password)
+    {
+        $db = DB::createConnection();
+        $sql = 'update user set login = :login, password = :password where id = :id';
+
+        $result = $db->prepare($sql);
+        $result->bindParam(':id', $id, PDO::PARAM_STR);
+        $result->bindParam(':login', $name, PDO::PARAM_STR);
+        $result->bindParam(':password', $password, PDO::PARAM_STR);
+        return $result->execute();
+    }
 }
