@@ -2,6 +2,7 @@
 
     <section id="cart_items">
         <div class="container">
+            <h2 class="title text-center">Корзина</h2>
 
             <?php if ($productsInCart): ?>
 
@@ -62,8 +63,10 @@
                         </tbody>
                     </table>
                 </div>
+                <a class="btn btn-default checkout" href="/cart/checkout/"><i class="fa fa-shopping-cart"></i> Оформить заказ</a>
             <?php else: ?>
                 <h4>Корзина пуста</h4>
+                <a class="btn btn-default checkout" href="/"><i class="fa fa-shopping-cart"></i> Вернуться к покупкам</a>
             <?php endif; ?>
         </div>
 
