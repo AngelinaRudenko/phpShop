@@ -20,6 +20,7 @@
                         <?php foreach ($products as $product): ?>
                             <tr>
                                 <td class="cart_product">
+                                    <img src="<?php echo Product::getImage($product['id']); ?>" alt="" />
                                     <a href=""><?php echo $product['code']; ?><img src="/template/images/cart/two.png"></a>
                                 </td>
 

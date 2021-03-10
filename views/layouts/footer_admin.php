@@ -1,4 +1,7 @@
-<footer id="footer"><!--Footer-->
+    <div class="page-buffer"></div>
+</div>
+
+<footer id="footer" class="page-footer"><!--Footer-->
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
@@ -9,6 +12,8 @@
     </div>
 </footer><!--/Footer-->
 
+
+
 <script src="/template/js/jquery.js"></script>
 <script src="/template/js/jquery.cycle2.min.js"></script>
 <script src="/template/js/jquery.cycle2.carousel.min.js"></script>
@@ -17,19 +22,17 @@
 <script src="/template/js/price-range.js"></script>
 <script src="/template/js/jquery.prettyPhoto.js"></script>
 <script src="/template/js/main.js"></script>
-<!--асинхронное добавление в корзину-->
 <script>
-    //код должен быть выполнен только после загрузки док-та
-    $(document).ready(function () {
-        //нажатие на кнопку "добавить к корзину"
+    $(document).ready(function(){
         $(".add-to-cart").click(function () {
             var id = $(this).attr("data-id");
-            $.post("/cart/addAjax/" + id, {}, function (data) {
-                $("#cart-count").html(" (" + data + ")");
+            $.post("/cart/addAjax/"+id, {}, function (data) {
+                $("#cart-count").html(data);
             });
             return false;
         });
     });
 </script>
+
 </body>
 </html>

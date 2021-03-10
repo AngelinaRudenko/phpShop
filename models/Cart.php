@@ -40,15 +40,8 @@ class Cart
 
     public static function deleteWholeProduct($id)
     {
-        $id = intval($id);
-        $productInCart = array();
-        if (isset($_SESSION['products'])) {
-            $productInCart = $_SESSION['products'];
-        }
-        //если товар есть в корзине
-        if (array_key_exists($id, $productInCart)) {
-            unset($productInCart[$id]);
-        }
+        $productInCart = self::getProducts();
+        unset($productInCart[$id]);
         $_SESSION['products'] = $productInCart;
     }
 

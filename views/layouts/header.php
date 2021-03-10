@@ -80,7 +80,6 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li><a href="/blog/">Блог</a></li>
                         </ul>
                     </div>
                 </div>
