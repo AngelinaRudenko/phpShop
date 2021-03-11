@@ -72,6 +72,7 @@ class AdminProductController extends AdminBase
             $options['status'] = $_POST['status'];
 
             if (Product::updateProductById($id, $options)) {
+                echo "????";
                 // Проверим, загружалось ли через форму изображение
                 if (is_uploaded_file($_FILES["image"]["tmp_name"])) {
                     // Если загружалось, переместим его в нужную папке, дадим новое имя
