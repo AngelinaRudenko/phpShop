@@ -26,5 +26,5 @@
     </div>
 </section>
 
-<?php include ROOT . '/views/layouts/footer_admin.php'; ?>
+<?php include ROOT . '/views/layouts/footer.php'; ?>
 

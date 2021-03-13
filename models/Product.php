@@ -98,7 +98,6 @@ class Product
         $i = 0;
         while ($row = $result->fetch()) {
             $products[$i]['id'] = $row['id'];
-            $products[$i]['code'] = $row['code'];
             $products[$i]['name'] = $row['name'];
             $products[$i]['price'] = $row['price'];
             $i++;

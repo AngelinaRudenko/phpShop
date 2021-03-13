@@ -1,7 +1,11 @@
 #информация о моей БД
 components/Db.php
 
+#сохраненные картинки постов
+upload
+
 #vs code
+.vs
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json

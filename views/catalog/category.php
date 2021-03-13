@@ -17,7 +17,7 @@
                                         <div class="productinfo text-center">
                                             <img class="product-img-preview" src="<?php echo Product::getImage($product['id']); ?>" alt="" />
                                             <h2>
-                                                <?php echo $product['price']; ?>
+                                                <?php echo $product['price']; ?> $
                                             </h2>
                                             <p>
                                                 <a href="/product/<?php echo $product['id']; ?>">

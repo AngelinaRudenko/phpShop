@@ -26,7 +26,7 @@
                                 </td>
 
                                 <td class="cart_description">
-                                    <h4><a href="">
+                                    <h4><a href="/product/<?php echo $product['id']; ?>">
                                             <?php echo $product['name']; ?>
                                         </a></h4>
                                 </td>
