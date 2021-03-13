@@ -14,7 +14,6 @@
                 </ol>
             </div>
 
-
             <h4>Добавить новую категорию</h4>
 
             <br/>
@@ -43,14 +42,10 @@
                             <option value="0">Скрыта</option>
                         </select>
 
-                        <br><br>
-
-                        <input type="submit" name="submit" class="btn btn-default" value="Сохранить">
+                        <button type="submit" name="submit" class="btn btn-default">Сохранить</button>
                     </form>
                 </div>
             </div>
-
-
         </div>
     </div>
 </section>

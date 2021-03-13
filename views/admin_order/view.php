@@ -14,12 +14,9 @@
                 </ol>
             </div>
 
-
             <h4>Просмотр заказа #<?php echo $order['id']; ?></h4>
+
             <br/>
-
-
-
 
             <h5>Информация о заказе</h5>
             <table class="table-admin-small table-bordered table-striped table">
@@ -59,8 +56,7 @@
 
             <table class="table-admin-medium table-bordered table-striped table ">
                 <tr>
-                    <th>ID товара</th>
-                    <th>Артикул товара</th>
+                    <th>Id товара</th>
                     <th>Название</th>
                     <th>Цена</th>
                     <th>Количество</th>
@@ -68,7 +64,6 @@
                 <?php foreach ($products as $product): ?>
                     <tr>
                         <td><?php echo $product['id']; ?></td>
-                        <td><?php echo $product['code']; ?></td>
                         <td><?php echo $product['name']; ?></td>
                         <td>$<?php echo $product['price']; ?></td>
                         <td><?php echo $productsQuantity[$product['id']]; ?></td>

@@ -20,7 +20,7 @@
             
             <table class="table-bordered table-striped table">
                 <tr>
-                    <th>ID заказа</th>
+                    <th>Id заказа</th>
                     <th>Имя покупателя</th>
                     <th>Телефон покупателя</th>
                     <th>Дата оформления</th>

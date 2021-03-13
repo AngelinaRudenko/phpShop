@@ -20,8 +20,6 @@ class Router
 
     public function run() //анализ запроса и передача управления
     {
-        //print_r($this->routes);
-
         //получить строку запроса
         $uri = $this->getURI();
         //поиск строки в маршрутах

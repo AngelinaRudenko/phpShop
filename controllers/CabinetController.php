@@ -16,24 +16,29 @@ class CabinetController
     {
         $userId = User::checkLogged();
         $user = User::getUserById($userId);
-        $name = $user['login'];
-        $password = $user['password'];
 
         $result = false;
         if (isset($_POST['submit'])) {
+            $email = $_POST['email'];
             $name = $_POST['name'];
+            $surname = $_POST['surname'];
+            $country = $_POST['country'];
             $password = $_POST['password'];
 
             $errors = false;
 
-            if (!User::checkName($name)) {
-                $errors[] = 'Имя не должно быть короче 5-и символов';
+            if (!User::checkEmail($email))
+            {
+                $errors[] = 'Не правильно указан адрес электронной почты';
+            }
+            if (!User::checkName($name) && !User::checkName($surname)) {
+                $errors[] = 'Имя и фамилия не должны быть короче 5-и символов';
             }
             if (!User::checkPassword($password)) {
                 $errors[] = 'Пароль не должен быть короче 6-и символов';
             }
             if ($errors == false) {
-                $result = User::edit($userId, $name, $password);
+                $result = User::edit($userId, $email, $name, $surname, $country, $password);
             }
         }
         require_once(ROOT . '/views/cabinet/edit.php');

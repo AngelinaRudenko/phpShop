@@ -14,7 +14,6 @@
                 </ol>
             </div>
 
-
             <h4>Редактировать категорию "<?php echo $category['name']; ?>"</h4>
 
             <br/>
@@ -35,9 +34,7 @@
                             <option value="0" <?php if ($category['status'] == 0) echo ' selected="selected"'; ?>>Скрыта</option>
                         </select>
 
-                        <br><br>
-                        
-                        <input type="submit" name="submit" class="btn btn-default" value="Сохранить">
+                        <button type="submit" name="submit" class="btn btn-default">Сохранить</button>
                     </form>
                 </div>
             </div>

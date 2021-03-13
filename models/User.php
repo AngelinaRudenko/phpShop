@@ -114,15 +114,20 @@ class User
         }
     }
 
-    public static function edit($id, $name, $password)
+    public static function edit($id, $email, $name, $surname, $country, $password)
     {
         $db = DB::createConnection();
-        $sql = 'update user set login = :login, password = :password where id = :id';
+        $sql = 'update user set email = :email, name = :name, surname = :surname, country = :country, '.
+            'password = :password where id = :id';
 
         $result = $db->prepare($sql);
         $result->bindParam(':id', $id, PDO::PARAM_STR);
-        $result->bindParam(':login', $name, PDO::PARAM_STR);
+        $result->bindParam(':email', $email, PDO::PARAM_STR);
+        $result->bindParam(':name', $name, PDO::PARAM_STR);
+        $result->bindParam(':surname', $surname, PDO::PARAM_STR);
+        $result->bindParam(':country', $country, PDO::PARAM_STR);
         $result->bindParam(':password', $password, PDO::PARAM_STR);
+        print_r($result);
         return $result->execute();
     }
 

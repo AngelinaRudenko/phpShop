@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
 
-                <?php include ROOT . '/views/layouts/categoriesListSelected.php'; ?>
+                <?php include ROOT . '/views/layouts/categoriesList.php'; ?>
 
                 <div class="col-sm-9 padding-right">
                     <div class="features_items"><!--features_items-->
@@ -15,7 +15,7 @@
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="<?php echo Product::getImage($product['id']); ?>" alt="" />
+                                            <img class="product-img-preview" src="<?php echo Product::getImage($product['id']); ?>" alt="" />
                                             <h2>
                                                 <?php echo $product['price']; ?>
                                             </h2>

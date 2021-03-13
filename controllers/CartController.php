@@ -79,11 +79,6 @@ class CartController
                 $result = Order::save($userName, $userPhone, $userComment, $userId, $productsInCart);
 
                 if ($result) {
-                    //$adminEmail = 'php.start@mail.ru';
-                    //$message = 'http://digital-mafia.net/admin/orders';
-                    //$subject = 'Новый заказ!';
-                    //mail($adminEmail, $subject, $message);
-
                     Cart::clear();
                 }
             } else {

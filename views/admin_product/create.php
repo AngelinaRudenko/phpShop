@@ -27,15 +27,12 @@
                 </ul>
             <?php endif; ?>
 
-            <div class="col-lg-4">
+            <div class="col-lg-4 col">
                 <div class="login-form">
                     <form action="#" method="post" enctype="multipart/form-data">
 
                         <p>Название товара</p>
                         <input type="text" name="name" placeholder="" value="">
-
-                        <p>Артикул</p>
-                        <input type="text" name="code" placeholder="" value="">
 
                         <p>Стоимость, $</p>
                         <input type="text" name="price" placeholder="" value="">
@@ -53,9 +50,6 @@
 
                         <br/><br/>
 
-                        <p>Производитель</p>
-                        <input type="text" name="brand" placeholder="" value="">
-
                         <p>Изображение товара</p>
                         <input type="file" name="image" placeholder="" value="">
 
@@ -64,24 +58,8 @@
 
                         <br/><br/>
 
-                        <p>Наличие на складе</p>
-                        <select name="availability">
-                            <option value="1" selected="selected">Да</option>
-                            <option value="0">Нет</option>
-                        </select>
-
-                        <br/><br/>
-
                         <p>Новинка</p>
                         <select name="is_new">
-                            <option value="1" selected="selected">Да</option>
-                            <option value="0">Нет</option>
-                        </select>
-
-                        <br/><br/>
-
-                        <p>Рекомендуемые</p>
-                        <select name="is_recommended">
                             <option value="1" selected="selected">Да</option>
                             <option value="0">Нет</option>
                         </select>
@@ -94,16 +72,11 @@
                             <option value="0">Скрыт</option>
                         </select>
 
-                        <br/><br/>
-
-                        <input type="submit" name="submit" class="btn btn-default" value="Сохранить">
-
-                        <br/><br/>
+                        <button type="submit" name="submit" class="btn btn-default">Сохранить</button>
 
                     </form>
                 </div>
             </div>
-
         </div>
     </div>
 </section>

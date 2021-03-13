@@ -17,14 +17,22 @@ class AdminOrderController extends AdminBase
         $order = Order::getOrderById($id);
 
         if (isset($_POST['submit'])) {
-            $userName = $_POST['userName'];
-            $userPhone = $_POST['userPhone'];
-            $userComment = $_POST['userComment'];
-            $date = $_POST['date'];
-            $status = $_POST['status'];
+            $options['userName'] = $_POST['userName'];
+            $options['userPhone'] = $_POST['userPhone'];
+            $options['userComment'] = $_POST['userComment'];
+            $options['date'] = $_POST['date'];
+            $options['status'] = $_POST['status'];
 
-            Order::updateOrderById($id, $userName, $userPhone, $userComment, $date, $status);
-            header("Location: /admin/order/view/$id");
+            $errors = false;
+
+            $options['userName'] == '' ? $errors[] = 'Не указано название товара' : '';
+            $options['userPhone'] == '' ? $errors[] = 'Не указана стоимость товара' : '';
+            $options['date'] == '' ? $errors[] = 'Не указана дата' : '';
+
+            if ($errors == false) {
+                Order::updateOrderById($id, $options);
+                header("Location: /admin/order/view/$id");
+            }
         }
         require_once(ROOT . '/views/admin_order/update.php');
         return true;

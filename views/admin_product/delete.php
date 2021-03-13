@@ -20,10 +20,11 @@
 
             <p>Вы действительно хотите удалить этот товар?</p>
 
+            <div class="form login-form">
             <form method="post">
-                <input type="submit" name="submit" value="Удалить" />
+                <button type="submit" name="submit" class="btn btn-default">Удалить</button>
             </form>
-
+            </div>
         </div>
     </div>
 </section>

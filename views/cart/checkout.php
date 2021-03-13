@@ -4,18 +4,13 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-sm-9 padding-right">
                 <div class="features_items">
-                    <h2 class="title text-center">Корзина</h2>
+                    <h2 class="title text-center">Оформление заказа</h2>
 
                     <?php if ($result): ?>
-
                         <p>Заказ оформлен. Мы Вам перезвоним.</p>
-
                     <?php else: ?>
-
-                        <p>Выбрано товаров: <?php echo $totalQuantity; ?>, на сумму: <?php echo $totalPrice; ?></p><br/>
-
+                        <p>Выбрано товаров: <?php echo $totalQuantity; ?>, на сумму: <?php echo $totalPrice; ?> $</p><br/>
                         <div class="col-sm-4">
                             <?php if (isset($errors) && is_array($errors)): ?>
                                 <ul>
@@ -27,7 +22,7 @@
 
                             <p>Для оформления заказа заполните форму. Наш менеджер свяжется с Вами.</p>
 
-                            <div class="login-form">
+                            <div class="form signup-form">
                                 <form action="#" method="post">
 
                                     <p>Ваша имя</p>
@@ -39,18 +34,13 @@
                                     <p>Комментарий к заказу</p>
                                     <input type="text" name="userComment" placeholder="Сообщение" value="<?php echo $userComment; ?>"/>
 
-                                    <br/>
-                                    <br/>
-                                    <input type="submit" name="submit" class="btn btn-default" value="Оформить" />
+                                    <button type="submit" name="submit" class="btn btn-default">Оформить</button>
                                 </form>
                             </div>
                         </div>
 
                     <?php endif; ?>
-
                 </div>
-
-            </div>
         </div>
     </div>
 </section>
